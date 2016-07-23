@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<HBox fx:id="raView" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" alignment="CENTER">
+    <ScrollPane fx:id="vboxScrollPane" styleClass="vboxscrollpane" vbarPolicy="AS_NEEDED" fitToWidth="true">
+        <content>
+            <VBox fx:id="roomAvailabilityView" spacing="15" alignment="CENTER" fillWidth="true">
+                <padding>
+                    <Insets bottom="15.0" left="15.0" right ="15.0" top="15.0"/>
+                </padding>
+                <Label text="Room Search" alignment="CENTER" styleClass="mainTitle"/>
+                <TextField fx:id="locationField" minHeight="40" promptText="Location" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="startTimeField" minHeight="40" promptText="Start Time" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="endTimeField" minHeight="40" promptText="End Time" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="timeLengthField" minHeight="40" promptText="Time Length (Minutes)" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="daysField" minHeight="40" promptText="Days of the Week" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                <TextField fx:id="seatCapacityField" minHeight="40" promptText="Seat Capacity" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                <Button fx:id="searchButton" text="Search" onAction="#executeSearch" />
+                <Label fx:id="courseSearchLabel" text="Course Search" onMouseClicked="#courseSearch" styleClass="tableLabel" />
+            </VBox>
+
+        </content>
+    </ScrollPane>
+
+    <ScrollPane fx:id="tableScrollPane" hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED">
+        <content>
+            <TableView fx:id="roomSearchResults" prefHeight="1500" prefWidth="500">
+                <columnResizePolicy>
+                    <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+
+                    <TableColumn fx:id="locationColumn" text="Location" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="location"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="startTimeColumn" text="Start" prefWidth="70">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="startTime"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="endTimeColumn" text="End" prefWidth="70">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="endTime"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="timeLengthColumn" text="Time Length" prefWidth="80">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="timeLength" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="daysColumn" text="Days" prefWidth="80">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="days"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="seatCapacityColumn" text="Capacity" prefWidth="80">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="seatCapacity"/>
+                        </cellValueFactory>
+                    </TableColumn>
+
+
+                </columns>
+            </TableView>
+        </content>
+    </ScrollPane>
+</HBox>

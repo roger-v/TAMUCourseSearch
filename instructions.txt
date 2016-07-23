@@ -1,0 +1,51 @@
+TODO
+
+When you run the program,
+the first view you will see is a SearchView.
+In particular, this is Main.searchView, a static member
+in Main.java.
+
+If you click the Room Availability Search Label,
+It will take you to another view, a RoomAvailabilityView.
+This is Main.roomAvailabilityView.
+
+Now, every time the user presses Search while
+in the Main.searchView view (the first one),
+the static variable Main.currentSearch is updated.
+
+To find out what the user just searched upon clicking the button
+(which is an action executed in SearchView.executeSearch()),
+there are setters and getters in CourseSearch.java to get the
+Strings that the user input.
+
+So say you want to know what subject the user searched for,
+you'd use Main.currentSearch.getSubject(), which returns a String.
+
+In the same way, if the search was a Room Availability search
+where the button in the roomAvailabilityView was pressed,
+then Main.currentRASearch will be updated and you can use
+the getters to find out what the user searched.
+
+Use these Strings and convert them into SQL queries
+at the end of the print statements in
+
+SearchView.executeSearch()
+CSTableView.executeSearch()
+RoomAvailabilityView.executeSearch()
+RATableView.executeSearch()
+
+
+If it was a course search, turn the results into an array
+of Course objects and if it was a room availability search,
+turn the results into an array of Room objects.
+
+So in whichever executeSearch() function you fetched the data,
+once it's been fetched and converted into an array of either
+Course or Room, then update the respective table that is a
+static member in Main.java:
+
+For a course search, you retrieved data and turned it into Course [] results,
+Update the table by using Main.csTableView.setItems(results);
+
+For a room search, you retrieved data and turned it into Room [] results,
+Update the table by using Main.raTableView.setItems(results);

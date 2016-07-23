@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="searchView" spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right ="15.0" top="15.0"/>
+    </padding>
+
+    <Label fx:id="mainTitle" text="Texas A&amp;M University Course Search" alignment="CENTER" styleClass="mainTitle"/>
+    <TextField fx:id="subjectField" minHeight="40" maxWidth="400" promptText="Subject" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <TextField fx:id="courseNumberField" minHeight="40" maxWidth="400" promptText="Course Number" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <TextField fx:id="instructorField" minHeight="40" maxWidth="400" promptText="Instructor" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+
+    <Button fx:id="searchButton" text="Search" onAction="#executeSearch" />
+    <Label fx:id="advancedLabel" text="Advanced Search..." styleClass="textButton" onMouseClicked="#showAdvancedFields"/>
+    <Label fx:id="roomAvailabilityLabel" text="Room Availability Search" onMouseClicked="#roomAvailability" styleClass="textButton" />
+    <Label fx:id="helpLabel" text="Help" onMouseClicked="#showHelp" styleClass="textButton" />
+
+    <HBox fx:id="advancedFields" spacing="15" alignment="CENTER" visible="false">
+        <TextField fx:id="courseTitleField" minHeight="40" maxWidth="400" promptText="Course Title" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+        <TextField fx:id="startTimeField" minHeight="40" maxWidth="400" promptText="Start Time" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+        <TextField fx:id="endTimeField" minHeight="40" maxWidth="400" promptText="End Time" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+        <TextField fx:id="daysField" minHeight="40" maxWidth="400" promptText="Days of the Week" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+    </HBox>
+
+</VBox>

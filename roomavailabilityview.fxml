@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="roomAvailabilityView" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" >
+
+    <padding>
+        <Insets bottom="15.0" left="15.0" right ="15.0" top="15.0"/>
+    </padding>
+
+    <Label fx:id="roomAvailabilityTitle" text="Check for available rooms." alignment="CENTER" styleClass="mainTitle"/>
+    <TextField fx:id="locationField" promptText="Location" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <TextField fx:id="startTimeField" promptText="Start Time" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <TextField fx:id="endTimeField" promptText="End Time" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+    <TextField fx:id="timeLengthField" promptText="Time Length (Minutes)" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <TextField fx:id="daysField" promptText="Days Field" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+    <TextField fx:id="seatCapacityField" promptText="Seat Capacity" minHeight="40" maxWidth="400" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+    <Button fx:id="roomAvailabilitySearchButton" text="Search" onAction="#executeSearch" />
+    <Label fx:id="returnToSearchView" text="Go Back" styleClass="textButton" onMouseClicked="#goToSearchView"/>
+
+</VBox>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<HBox fx:id="csView" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" alignment="CENTER">
+    <ScrollPane fx:id="vboxScrollPane" styleClass="vboxscrollpane" vbarPolicy="AS_NEEDED" fitToWidth="true">
+        <content>
+            <VBox fx:id="searchView" spacing="15" alignment="CENTER" fillWidth="true">
+                <padding>
+                    <Insets bottom="15.0" left="15.0" right ="15.0" top="15.0"/>
+                </padding>
+                <Label text="Course Search" alignment="CENTER" style="-fx-text-fill: white; -fx-font-size: 20px;"/>
+                <TextField fx:id="subjectField" minHeight="40" promptText="Subject" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="courseNumberField" minHeight="40" promptText="Course Number" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+                <TextField fx:id="instructorField" minHeight="40" promptText="Instructor" onAction="#executeSearch" onMouseEntered="#showToolTip"/>
+
+                <Button fx:id="searchButton" text="Search" onAction="#executeSearch" />
+                <Label fx:id="advancedLabel" text="Advanced Search..." styleClass="tableLabel" onMouseClicked="#showAdvancedFields"/>
+                <Label fx:id="roomAvailabilityLabel" text="Room Availability Search" onMouseClicked="#roomAvailability" styleClass="tableLabel" />
+
+                <VBox fx:id="advancedFields" spacing="15" alignment="CENTER" visible="false">
+                    <TextField fx:id="courseTitleField" minHeight="40" promptText="Course Title" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                    <TextField fx:id="startTimeField" minHeight="40" promptText="Start Time" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                    <TextField fx:id="endTimeField" minHeight="40" promptText="End Time" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                    <TextField fx:id="daysField" minHeight="40" promptText="Days of the Week" onAction="#executeSearch" onMouseEntered="#showToolTip" />
+                </VBox>
+            </VBox>
+
+        </content>
+    </ScrollPane>
+
+    <TableView fx:id="courseSearchResults" >
+        <columnResizePolicy>
+            <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+        <columns>
+
+        <TableColumn fx:id="subjectColumn" text="Subj" prefWidth="50">
+            <cellValueFactory>
+                <PropertyValueFactory property="subject"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="courseNumberColumn" text="Num" prefWidth="40">
+            <cellValueFactory>
+                <PropertyValueFactory property="number"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="courseTitleColumn" text="Title" prefWidth="200">
+            <cellValueFactory>
+                <PropertyValueFactory property="title"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="crnColumn" text="CRN" prefWidth="60">
+            <cellValueFactory>
+                <PropertyValueFactory property="crn"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="creditsColumn" text="Cred." prefWidth="35">
+            <cellValueFactory>
+                <PropertyValueFactory property="credits"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="seatCapacityColumn" text="Cap." prefWidth="40">
+            <cellValueFactory>
+                <PropertyValueFactory property="capacity"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="seatAvailabilityColumn" text="Rem." prefWidth="40">
+            <cellValueFactory>
+                <PropertyValueFactory property="availability"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="daysColumn" text="Days">
+            <cellValueFactory>
+                <PropertyValueFactory property="days"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="startTimeColumn" text="Start">
+            <cellValueFactory>
+                <PropertyValueFactory property="startTime"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="endTimeColumn" text="End">
+            <cellValueFactory>
+                <PropertyValueFactory property="endTime"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="instructorColumn" text="Instructor" prefWidth="180">
+            <cellValueFactory>
+                <PropertyValueFactory property="instructor"/>
+            </cellValueFactory>
+        </TableColumn>
+        <TableColumn fx:id="locationColumn" text = "Location">
+            <cellValueFactory>
+                <PropertyValueFactory property="location"/>
+            </cellValueFactory>
+        </TableColumn>
+
+        </columns>
+    </TableView>
+</HBox>
