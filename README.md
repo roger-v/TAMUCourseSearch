@@ -17,4 +17,4 @@ If that's unclear, an example would be an organization desiring to find any room
 This application allows the user to make that kind of search, which we call Room Availability Search.
 Levi also worked with me to write the JDBC code.
 
-I wrote the GUI using JavaFX as well as some of the JDBC code to connect with the database, issue commands, and retrieve results.
+I wrote the GUI using JavaFX as well as some of the JDBC code to connect with the database, issue commands, and retrieve results. I wrote all of the fxml and Java code except for some of the JDBC code in the generateResults() function of RoomAvailabilitySearch.java as well as CourseSearch.java.
